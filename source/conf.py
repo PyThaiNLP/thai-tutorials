@@ -85,8 +85,8 @@ nbsphinx_prolog = r"""
 
     .. nbinfo::
         Interactive online version: 
-        :raw-html:`<a target="_blank" href="https://mybinder.org/v2/gh/pythainlp/tutorials/master?filepath=source/notebooks/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge_logo.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a target="_blank" href="https://colab.research.google.com/github/PyThaiNLP/tutorials/blob/master/source/notebooks/{{ docname }}"><img alt="Google Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a target="_blank" href="https://mybinder.org/v2/gh/pythainlp/thai-tutorials/main?filepath=source/notebooks/{{ docname }}"><img alt="Binder badge" src="https://mybinder.org/badge_logo.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a target="_blank" href="https://colab.research.google.com/github/PyThaiNLP/thai-tutorials/blob/main/source/notebooks/{{ docname }}"><img alt="Google Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a>`
 .. raw:: latex
 
     \nbsphinxstartnotebook{The following section was created from
