@@ -3,9 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PyThaiNLP Tutorials
-===============================================
-PyThaiNLP is a Python library for Thai Natural Language Processing.
+ยินดีต้อนรับเข้าสู่เอกสารคู่มือของ PyThaiNLP
+============================================
 
 .. toctree::
    :glob:
@@ -16,8 +15,8 @@ PyThaiNLP is a Python library for Thai Natural Language Processing.
 
 `Apache Software License 2.0 <https://apache.org/licenses/LICENSE-2.0>`_
 
-Maintained by the PyThaiNLP team.
+ดูแลโดยทีม PyThaiNLP
 
-* See source code of these tutorials at https://github.com/PyThaiNLP/tutorials
-* Main PyThaiNLP development at https://github.com/PyThaiNLP/pythainlp
-* PyThaiNLP website at https://pythainlp.github.io
+* โค้ดเอกสารคู่มือสามารถดูได้ที่ https://github.com/PyThaiNLP/thai-tutorials
+* โมดูล PyThaiNLP https://github.com/PyThaiNLP/pythainlp
+* เว็บไซต์ของ PyThaiNLP https://pythainlp.github.io
