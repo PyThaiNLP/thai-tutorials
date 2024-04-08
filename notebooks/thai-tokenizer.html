@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัดคำภาษาไทยด้วย PyThaiNLP &mdash; pythainlp-tutorials a741d86 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ค้นหาคำที่มีเสียงคล้องจองภาษาไทยด้วย PyThaiNLP" href="find_all_thai_rhyming_words.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pythainlp-tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Han-Coref.html">🪿 Han-Coref: Thai Coreference resolution by PyThaiNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="find_all_thai_rhyming_words.html">ค้นหาคำที่มีเสียงคล้องจองภาษาไทยด้วย PyThaiNLP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ตัดคำภาษาไทยด้วย PyThaiNLP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ปรับแต่งพจนานุกรมตัดคำภาษาไทยใน-PyThaiNLP">ปรับแต่งพจนานุกรมตัดคำภาษาไทยใน PyThaiNLP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#เรียกใช้พจนานุกรมของ-PyThaiNLP">เรียกใช้พจนานุกรมของ PyThaiNLP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pythainlp-tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ตัดคำภาษาไทยด้วย PyThaiNLP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/thai-tokenizer.ipynb" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="admonition note">
+<p>Interactive online version:
+<span class="raw-html"><a target="_blank" href="https://mybinder.org/v2/gh/pythainlp/thai-tutorials/main?filepath=source/notebooks/thai-tokenizer.ipynb"><img alt="Binder badge" src="https://mybinder.org/badge_logo.svg" style="vertical-align:text-bottom"></a></span>
+<span class="raw-html"><a target="_blank" href="https://colab.research.google.com/github/PyThaiNLP/thai-tutorials/blob/main/source/notebooks/thai-tokenizer.ipynb"><img alt="Google Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<section id="ตัดคำภาษาไทยด้วย-PyThaiNLP">
+<h1>ตัดคำภาษาไทยด้วย PyThaiNLP<a class="headerlink" href="#ตัดคำภาษาไทยด้วย-PyThaiNLP" title="Permalink to this heading"></a></h1>
+<p>PyThaiNLP รองรับการตัดคำทั้งแบบใช้พจนานุกรม และ deep learning โดยค่าเริ่มต้นของ PyThaiNLP ทำงานโดยใช้พจนานุกรมตัดคำด้วยตัวตัดคำที่ชื่อว่า newmm</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>pythainlp
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;ก็จะรู้ความชั่วร้ายที่ทำไว้     และคงจะไม่ยอมให้ทำนาบนหลังคน &quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ค่าเริ่มต้น (newmm):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">newmm และ keep_whitespace=False:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">keep_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="c1"># ถ้าเป็น False จะไม่เก็บช่องว่างหลังการตัดคำไว้</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ค่าเริ่มต้น (newmm):
+[&#39;ก็&#39;, &#39;จะ&#39;, &#39;รู้ความ&#39;, &#39;ชั่วร้าย&#39;, &#39;ที่&#39;, &#39;ทำ&#39;, &#39;ไว้&#39;, &#39;     &#39;, &#39;และ&#39;, &#39;คงจะ&#39;, &#39;ไม่&#39;, &#39;ยอมให้&#39;, &#39;ทำนาบนหลังคน&#39;, &#39; &#39;]
+
+newmm และ keep_whitespace=False:
+[&#39;ก็&#39;, &#39;จะ&#39;, &#39;รู้ความ&#39;, &#39;ชั่วร้าย&#39;, &#39;ที่&#39;, &#39;ทำ&#39;, &#39;ไว้&#39;, &#39;และ&#39;, &#39;คงจะ&#39;, &#39;ไม่&#39;, &#39;ยอมให้&#39;, &#39;ทำนาบนหลังคน&#39;]
+</pre></div></div>
+</div>
+<p>นอกจากนั้นคุณสามารถเลือกตัวตัดคำอื่น ๆ ได้ เช่น longest เป็นต้น คุณสามารถอ่านตัวตัดคำที่รองรับได้จากเอกสาร API ของ PyThaiNLP ตามรุ่นของ PyThaiNLPที่คุณเรียกใช้งาน ได้ที่ <a class="reference external" href="https://pythainlp.github.io/docs/">https://pythainlp.github.io/docs/</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;กฎหมายแรงงานฉบับปรับปรุงใหม่ประกาศใช้แล้ว&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;newmm  :&quot;</span><span class="p">,</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>  <span class="c1"># default engine is &quot;newmm&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;longest:&quot;</span><span class="p">,</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;longest&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+newmm  : [&#39;กฎหมายแรงงาน&#39;, &#39;ฉบับ&#39;, &#39;ปรับปรุง&#39;, &#39;ใหม่&#39;, &#39;ประกาศ&#39;, &#39;ใช้แล้ว&#39;]
+longest: [&#39;กฎหมายแรงงาน&#39;, &#39;ฉบับ&#39;, &#39;ปรับปรุง&#39;, &#39;ใหม่&#39;, &#39;ประกาศใช้&#39;, &#39;แล้ว&#39;]
+</pre></div></div>
+</div>
+<section id="ปรับแต่งพจนานุกรมตัดคำภาษาไทยใน-PyThaiNLP">
+<h2>ปรับแต่งพจนานุกรมตัดคำภาษาไทยใน PyThaiNLP<a class="headerlink" href="#ปรับแต่งพจนานุกรมตัดคำภาษาไทยใน-PyThaiNLP" title="Permalink to this heading"></a></h2>
+<p>หากคุณณต้องการปรับแต่งตัวตัดคำให้เพิ่มคำศัพท์ตามที่คุณต้องการ แก้ไข หรือลบคำศัพท์ คุณสามารถทำได้ดังนี้</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.tokenize</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;กฎหมายแรงงานฉบับปรับปรุงใหม่ประกาศใช้แล้ว พายไทยก็พร้อมปรับปรุง&quot;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;แรงงาน&quot;</span><span class="p">]</span>  <span class="c1"># รายการคำศัพท์ ให้มีเพียงคำเดียว</span>
+<span class="n">custom_tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;newmm (custom dictionary):&quot;</span><span class="p">,</span> <span class="n">custom_tokenizer</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+newmm (custom dictionary): [&#39;กฎหมาย&#39;, &#39;แรงงาน&#39;, &#39;ฉบับปรับปรุงใหม่ประกาศใช้แล้ว&#39;, &#39; &#39;, &#39;พายไทยก็พร้อมปรับปรุง&#39;]
+</pre></div></div>
+</div>
+<section id="เรียกใช้พจนานุกรมของ-PyThaiNLP">
+<h3>เรียกใช้พจนานุกรมของ PyThaiNLP<a class="headerlink" href="#เรียกใช้พจนานุกรมของ-PyThaiNLP" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythainlp.corpus</span> <span class="kn">import</span> <span class="n">thai_words</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span>
+<span class="n">custom_tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">list_words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;newmm :&quot;</span><span class="p">,</span> <span class="n">custom_tokenizer</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+newmm : [&#39;กฎหมายแรงงาน&#39;, &#39;ฉบับ&#39;, &#39;ปรับปรุง&#39;, &#39;ใหม่&#39;, &#39;ประกาศ&#39;, &#39;ใช้แล้ว&#39;, &#39; &#39;, &#39;พาย&#39;, &#39;ไทย&#39;, &#39;ก็&#39;, &#39;พร้อม&#39;, &#39;ปรับปรุง&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">thai_words</span><span class="p">())</span>
+<span class="n">list_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;พายไทย&quot;</span><span class="p">)</span>  <span class="c1"># เพิ่ม &quot;พายไทย&quot;</span>
+<span class="n">list_words</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;ใช้แล้ว&quot;</span><span class="p">)</span>  <span class="c1"># ลบ &quot;ใช้แล้ว&quot;</span>
+<span class="n">custom_tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">list_words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;newmm  (custom dictionary):&quot;</span><span class="p">,</span> <span class="n">custom_tokenizer</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+newmm  (custom dictionary): [&#39;กฎหมายแรงงาน&#39;, &#39;ฉบับ&#39;, &#39;ปรับปรุง&#39;, &#39;ใหม่&#39;, &#39;ประกาศใช้&#39;, &#39;แล้ว&#39;, &#39; &#39;, &#39;พายไทย&#39;, &#39;ก็&#39;, &#39;พร้อม&#39;, &#39;ปรับปรุง&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># more</span>
+<span class="c1"># WIP</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="find_all_thai_rhyming_words.html" class="btn btn-neutral float-left" title="ค้นหาคำที่มีเสียงคล้องจองภาษาไทยด้วย PyThaiNLP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019 - 2024, PyThaiNLP.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
