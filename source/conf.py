@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'pythainlp-tutorials'
+project = 'เอกสารคู่มือ PyThaiNLP ภาษาไทย'
 copyright = '2019 - 2024, PyThaiNLP'
 author = 'PyThaiNLP'
 
