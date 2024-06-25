@@ -19,4 +19,4 @@
 
 * โค้ดเอกสารคู่มือสามารถดูได้ที่ https://github.com/PyThaiNLP/thai-tutorials
 * โมดูล PyThaiNLP https://github.com/PyThaiNLP/pythainlp
-* เว็บไซต์ของ PyThaiNLP https://pythainlp.github.io
+* เว็บไซต์ของ PyThaiNLP https://pythainlp.org
